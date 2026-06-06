@@ -13,5 +13,5 @@ document.getElementById("btn-adotar").addEventListener("click", () => {
 
   const mensagem = `Olá! Tenho interesse em adotar ${animalSelecionado.nome}.`;
 
-  window.open(`https://wa.me/55${telefone}?text=${encodeURIComponent(mensagem)}`, "_blank");
+  window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, "_blank");
 });
