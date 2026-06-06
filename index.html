@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetMatch</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="others/supabase.js" defer></script>
+    <script src="algoritmos/filtro.js" defer></script>
+    <script src="algoritmos/cadastro.js" defer></script>
+    <script src="algoritmos/formatarContato.js" defer></script>
+    <script src="algoritmos/selecionarAnimal.js" defer></script>
+    <script src="algoritmos/adotarBtn.js" defer></script>
+    <script src="./others/sectionCarroussel.js" defer></script>
+  </head>
+  <body id="app">
+    <div id="cel-blocker">
+      <p>Utilize um computador para acessar os algoritmos</p>
+    </div>
+    <div id="buttons">
+      <button id="back-button"><</button>
+      <button id="forward-button">></button>
+    </div>
+    <div id="sections">
+      <div id="sections-track">
+        <section>
+          <div class="card">
+            <header><img src="others/images/logo.png" alt="logo" /></header>
+            <main id="filters-main">
+              <div class="box" id="filters-box">
+                <h2 class="bold">Filtros</h2>
+
+                <div class="filter-group">
+                  <label for="especie">Espécie</label>
+                  <select id="especie">
+                    <option value="">Todas</option>
+                    <option value="cachorro">Cachorro</option>
+                    <option value="gato">Gato</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="sexo">Sexo</label>
+                  <select id="sexo">
+                    <option value="">Todos</option>
+                    <option value="macho">Macho</option>
+                    <option value="femea">Fêmea</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="porte">Tamanho</label>
+                  <select id="porte">
+                    <option value="">Todos</option>
+                    <option value="pequeno">Pequeno</option>
+                    <option value="medio">Médio</option>
+                    <option value="grande">Grande</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="cidade-filtro">Cidade</label>
+                  <input type="text" id="cidade-filtro" placeholder="Digite a cidade" />
+                </div>
+
+                <div class="filter-group">
+                  <label for="idade-min">Idade</label>
+                  <div class="range-group">
+                    <input type="number" id="idade-min" placeholder="Mín" min="0" />
+                    <span>até</span>
+                    <input type="number" id="idade-max" placeholder="Máx" min="0" />
+                    <span>anos</span>
+                  </div>
+                </div>
+
+                <button id="btn-filtrar">Filtrar</button>
+              </div>
+
+              <div id="animals-list">
+                <p class="list-empty">Carregando...</p>
+              </div>
+            </main>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <header>
+              <img src="others/images/logo.png" alt="logo" />
+            </header>
+
+            <main id="animal-details">
+              <div class="animal-details-card">
+                <h2 id="animal-nome">Nome do Animal</h2>
+
+                <div class="details-grid">
+                  <div class="detail-box">
+                    <span>Espécie</span>
+                    <strong id="animal-especie">-</strong>
+                  </div>
+
+                  <div class="detail-box">
+                    <span>Sexo</span>
+                    <strong id="animal-sexo">-</strong>
+                  </div>
+
+                  <div class="detail-box">
+                    <span>Porte</span>
+                    <strong id="animal-porte">-</strong>
+                  </div>
+
+                  <div class="detail-box">
+                    <span>Idade</span>
+                    <strong id="animal-idade">-</strong>
+                  </div>
+
+                  <div class="detail-box">
+                    <span>Cidade</span>
+                    <strong id="animal-cidade">-</strong>
+                  </div>
+
+                  <div class="detail-box">
+                    <span>Tutor</span>
+                    <strong id="animal-instituicao">-</strong>
+                  </div>
+                </div>
+
+                <button id="btn-adotar">ADOTAR</button>
+              </div>
+            </main>
+          </div>
+        </section>
+
+        <section>
+          <div class="card">
+            <header>
+              <img src="others/images/logo.png" alt="logo" />
+            </header>
+
+            <main id="register-main">
+              <h2>Cadastrar Animal</h2>
+
+              <div class="form-grid">
+                <input type="text" id="nome" placeholder="Nome do animal" />
+
+                <select id="especie-cad">
+                  <option value="">Espécie</option>
+                  <option value="cachorro">Cachorro</option>
+                  <option value="gato">Gato</option>
+                  <option value="outro">Outro</option>
+                </select>
+
+                <select id="sexo-cad">
+                  <option value="">Sexo</option>
+                  <option value="macho">Macho</option>
+                  <option value="femea">Fêmea</option>
+                </select>
+
+                <select id="porte-cad">
+                  <option value="">Tamanho</option>
+                  <option value="pequeno">Pequeno</option>
+                  <option value="medio">Médio</option>
+                  <option value="grande">Grande</option>
+                </select>
+
+                <input type="number" id="idade-cad" placeholder="Idade (anos)" min="0" />
+
+                <input type="text" id="cidade" placeholder="Cidade" />
+
+                <input type="text" id="contato" placeholder="Contato" />
+
+                <input type="text" id="instituicao" placeholder="Instituição ou tutor" />
+
+                <button id="btn-cadastrar">Cadastrar</button>
+
+                <p id="cadastro-msg"></p>
+              </div>
+            </main>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
